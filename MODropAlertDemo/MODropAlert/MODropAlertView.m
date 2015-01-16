@@ -251,9 +251,9 @@ static NSString* kAlertCancelButtonHighlightColor = @"#b0120a";
     
     UIImage *image = [UIImage convertViewToImage];
     UIImage *blurSnapshotImage = nil;
-    blurSnapshotImage = [image applyBlurWithRadius:5.0
-                                         tintColor:[UIColor colorWithWhite:0.2
-                                                                     alpha:0.7]
+    blurSnapshotImage = [image applyBlurWithRadius:20.0
+                                         tintColor:[UIColor colorWithWhite:0.0
+                                                                     alpha:0.6]
                              saturationDeltaFactor:1.8
                                          maskImage:nil];
     
@@ -284,9 +284,10 @@ static NSString* kAlertCancelButtonHighlightColor = @"#b0120a";
     titleLabel.center = CGPointMake(CGRectGetWidth(alertView.frame)/2, kAlertTitleLabelTopMargin);
     titleLabel.text = titleStr;
     titleLabel.textColor = [UIColor darkGrayColor];
-    [titleLabel setTextAlignment:NSTextAlignmentCenter];
     titleLabel.font = [titleLabel.font fontWithSize:kAlertTitleLabelFontSize];
-    
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.minimumScaleFactor = 0.5;
+    titleLabel.adjustsFontSizeToFitWidth = YES;
     [alertView addSubview:titleLabel];
 }
 
